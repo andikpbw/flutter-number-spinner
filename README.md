@@ -11,7 +11,7 @@ A modern, eye-catching animated number spinner, 3D cylindrical wheel picker, rol
 > 🌟 Supported & Powered by [Humanize AI](https://humanize.id)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/showcase_banner.svg" alt="number_spinner interactive animated showcase" width="100%" />
+  <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/showcase_banner.svg?v=1.0.4" alt="number_spinner interactive animated showcase" width="100%" />
 </p>
 
 ---
@@ -20,12 +20,12 @@ A modern, eye-catching animated number spinner, 3D cylindrical wheel picker, rol
 
 | 1. Odometer Number Spinner (`odometer`) | 2. 3D Spin Wheel Picker (`SpinWheelNumberSpinner`) |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/odometer_spinner.svg" alt="Odometer Number Spinner Preview" width="100%" /> | <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/wheel_picker.svg" alt="3D Spin Wheel Picker Preview" width="100%" /> |
+| <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/odometer_spinner.svg?v=1.0.4" alt="Odometer Number Spinner Preview" width="100%" /> | <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/wheel_picker.svg?v=1.0.4" alt="3D Spin Wheel Picker Preview" width="100%" /> |
 | Per-character rolling digit transition, drag-to-spin, tap-to-edit, and bottom progress bar. | Colorful 3D circular lucky spin wheel with numbered pie slices, center pointer hub, weighted odds, and `[-]` `[↻]` `[+]` controls. |
 
 | 3. Multi-Digit 3D Drum Counter (`MultiDigitNumberSpinner`) | 4. Interactive Sliding Ruler (`ruler`) |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/multi_digit_counter.svg" alt="Multi-Digit 3D Drum Counter Preview" width="100%" /> | <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/ruler_slider.svg" alt="Interactive Sliding Ruler Preview" width="100%" /> |
+| <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/multi_digit_counter.svg?v=1.0.4" alt="Multi-Digit 3D Drum Counter Preview" width="100%" /> | <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/ruler_slider.svg?v=1.0.4" alt="Interactive Sliding Ruler Preview" width="100%" /> |
 | Spin each place-value digit column (`100s`, `10s`, `1s`, `.1s`) independently. | Snap-to-step tick gauge with glowing center pointer needle and live odometer readout badge. |
 
 ---
@@ -65,7 +65,7 @@ Add `number_spinner` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  number_spinner: ^1.0.3
+  number_spinner: ^1.0.4
 ```
 
 Or install via the Flutter CLI:

@@ -1,6 +1,6 @@
 name: number_spinner
 description: A modern, eye-catching animated number spinner, 3D wheel picker, odometer counter, and ruler slider widget library for Flutter.
-version: 1.0.3
+version: 1.0.4
 homepage: https://humanize.id
 repository: https://github.com/andikpbw/flutter-number-spinner
 issue_tracker: https://github.com/andikpbw/flutter-number-spinner/issues

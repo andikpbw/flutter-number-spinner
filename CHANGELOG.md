@@ -1,3 +1,7 @@
+## 1.0.4
+
+- Polished header typography spacing in `doc/showcase_banner.svg` and added cache-busting query parameters (`?v=1.0.4`) on `README.md` SVG preview URLs for immediate CDN refresh on `pub.dev`.
+
 ## 1.0.3
 
 - Added `SpinWheelNumberSpinner`, `SpinWheelController`, and `NumberSpinnerLayout.spinWheel` for colorful 3D circular lucky spin wheel / roulette number picking with numbered pie slices, central teardrop pointer hub, weighted probabilities (`weights`), winner exclusion (`excludeNumber`), and `[-]` `[↻]` `[+]` action controls.
