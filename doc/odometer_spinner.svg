@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.08"/>
+    </linearGradient>
+    <clipPath id="odoSlotA">
+      <rect x="130" y="54" width="160" height="38" rx="8"/>
+    </clipPath>
+    <clipPath id="odoSlotB">
+      <rect x="130" y="128" width="160" height="38" rx="8"/>
+    </clipPath>
+  </defs>
+
+  <rect width="420" height="200" rx="18" fill="url(#bg)" stroke="#334155" stroke-width="1.5"/>
+  <text x="24" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">Odometer Number Spinner (Glass &amp; Neon)</text>
+
+  <!-- Glass Odometer -->
+  <rect x="56" y="44" width="308" height="58" rx="16" fill="url(#glass)" stroke="#6366F1" stroke-width="1.6"/>
+  <rect x="64" y="51" width="44" height="44" rx="12" fill="#6366F1" fill-opacity="0.18"/>
+  <rect x="79" y="72" width="14" height="2.4" rx="1.2" fill="#E2E8F0"/>
+  <rect x="122" y="52" width="176" height="42" rx="10" fill="#6366F1" fill-opacity="0.18" stroke="#818CF8" stroke-opacity="0.45"/>
+
+  <g clip-path="url(#odoSlotA)">
+    <text x="195" y="81" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#F8FAFC" text-anchor="middle">4</text>
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-38; 0,-38; 0,-76; 0,-76; 0,0"
+        keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+        dur="5s" repeatCount="indefinite"/>
+      <text x="217" y="81" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#818CF8" text-anchor="middle">2</text>
+      <text x="217" y="119" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#818CF8" text-anchor="middle">3</text>
+      <text x="217" y="157" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#818CF8" text-anchor="middle">4</text>
+    </g>
+  </g>
+
+  <rect x="312" y="51" width="44" height="44" rx="12" fill="#6366F1">
+    <animate attributeName="fill-opacity" values="0.2; 0.55; 0.2; 0.55; 0.2" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="327" y="72" width="14" height="2.4" rx="1.2" fill="#FFFFFF"/>
+  <rect x="332.8" y="66" width="2.4" height="14" rx="1.2" fill="#FFFFFF"/>
+  <rect x="70" y="97" width="280" height="3" rx="1.5" fill="#334155"/>
+  <rect x="70" y="97" width="120" height="3" rx="1.5" fill="#818CF8">
+    <animate attributeName="width" values="120; 120; 175; 175; 230; 230; 120" keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1" dur="5s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Neon Odometer -->
+  <rect x="56" y="118" width="308" height="58" rx="16" fill="#090D16" stroke="#00F5D4" stroke-width="1.6"/>
+  <rect x="64" y="125" width="44" height="44" rx="12" fill="#00F5D4" fill-opacity="0.14"/>
+  <rect x="79" y="146" width="14" height="2.4" rx="1.2" fill="#00F5D4"/>
+  <rect x="122" y="126" width="176" height="42" rx="10" fill="#00F5D4" fill-opacity="0.12" stroke="#00F5D4" stroke-opacity="0.5"/>
+
+  <g clip-path="url(#odoSlotB)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-38; 0,-38; 0,-76; 0,-76; 0,0"
+        keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+        dur="5s" repeatCount="indefinite"/>
+      <text x="210" y="154" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#00F5D4" text-anchor="middle">$1,250.00</text>
+      <text x="210" y="192" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#00F5D4" text-anchor="middle">$1,300.00</text>
+      <text x="210" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#00F5D4" text-anchor="middle">$1,350.00</text>
+    </g>
+  </g>
+
+  <rect x="312" y="125" width="44" height="44" rx="12" fill="#00F5D4" fill-opacity="0.18"/>
+  <rect x="327" y="146" width="14" height="2.4" rx="1.2" fill="#00F5D4"/>
+  <rect x="332.8" y="140" width="2.4" height="14" rx="1.2" fill="#00F5D4"/>
+</svg>

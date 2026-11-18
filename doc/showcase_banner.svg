@@ -1,0 +1,418 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.92"/>
+    </linearGradient>
+
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.08"/>
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#00F5D4"/>
+    </linearGradient>
+
+    <linearGradient id="wheelFadeV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#151E2E" stop-opacity="0.95"/>
+      <stop offset="28%" stop-color="#151E2E" stop-opacity="0"/>
+      <stop offset="72%" stop-color="#151E2E" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#151E2E" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <linearGradient id="rulerFadeH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#151E2E" stop-opacity="0.95"/>
+      <stop offset="20%" stop-color="#151E2E" stop-opacity="0"/>
+      <stop offset="80%" stop-color="#151E2E" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#151E2E" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+
+    <!-- Clip paths for animated viewports -->
+    <clipPath id="odoClip1">
+      <rect x="135" y="136" width="110" height="36" rx="8"/>
+    </clipPath>
+    <clipPath id="odoClip2">
+      <rect x="135" y="212" width="130" height="36" rx="8"/>
+    </clipPath>
+    <clipPath id="wheelClipV">
+      <rect x="520" y="118" width="130" height="146" rx="14"/>
+    </clipPath>
+    <clipPath id="wheelClipH">
+      <rect x="676" y="160" width="190" height="54" rx="14"/>
+    </clipPath>
+    <clipPath id="drumClip1">
+      <rect x="92" y="362" width="52" height="132" rx="10"/>
+    </clipPath>
+    <clipPath id="drumClip2">
+      <rect x="150" y="362" width="52" height="132" rx="10"/>
+    </clipPath>
+    <clipPath id="drumClip3">
+      <rect x="208" y="362" width="52" height="132" rx="10"/>
+    </clipPath>
+    <clipPath id="drumClip4">
+      <rect x="280" y="362" width="52" height="132" rx="10"/>
+    </clipPath>
+    <clipPath id="rulerClip">
+      <rect x="502" y="420" width="364" height="78" rx="12"/>
+    </clipPath>
+    <clipPath id="rulerBadgeClip">
+      <rect x="630" y="368" width="110" height="32" rx="16"/>
+    </clipPath>
+  </defs>
+
+  <!-- Main Background -->
+  <rect width="920" height="560" rx="22" fill="url(#bgGrad)"/>
+  <rect x="1" y="1" width="918" height="558" rx="21" fill="none" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Header Bar -->
+  <g transform="translate(32, 24)">
+    <rect x="0" y="0" width="38" height="38" rx="10" fill="url(#accentGrad)"/>
+    <text x="19" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#0F172A" text-anchor="middle">123</text>
+    <text x="52" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="#F8FAFC">number_spinner</text>
+    <text x="52" y="35" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#94A3B8">Animated Odometer • 3D Wheel Picker • Multi-Digit Drum • Interactive Ruler</text>
+
+    <!-- Theme Pills -->
+    <g transform="translate(575, 6)">
+      <rect x="0" y="0" width="60" height="24" rx="12" fill="#6366F1" fill-opacity="0.2" stroke="#6366F1" stroke-width="1"/>
+      <text x="30" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#818CF8" text-anchor="middle">Modern</text>
+
+      <rect x="68" y="0" width="54" height="24" rx="12" fill="#8B5CF6" fill-opacity="0.2" stroke="#8B5CF6" stroke-width="1"/>
+      <text x="95" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#C4B5FD" text-anchor="middle">Glass</text>
+
+      <rect x="130" y="0" width="54" height="24" rx="12" fill="#00F5D4" fill-opacity="0.15" stroke="#00F5D4" stroke-width="1"/>
+      <text x="157" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#00F5D4" text-anchor="middle">Neon</text>
+
+      <rect x="192" y="0" width="88" height="24" rx="12" fill="#9C27B0" fill-opacity="0.25" stroke="#CE93D8" stroke-width="1"/>
+      <text x="236" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#F3E5F5" text-anchor="middle">Humanize AI</text>
+    </g>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- CARD 1 (TOP-LEFT): ODOMETER NUMBER SPINNER                              -->
+  <!-- ======================================================================= -->
+  <g filter="url(#cardShadow)">
+    <rect x="30" y="78" width="416" height="216" rx="18" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2"/>
+  </g>
+  <circle cx="52" cy="102" r="5" fill="#818CF8"/>
+  <text x="66" y="106" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">1. Odometer Number Spinner</text>
+  <text x="266" y="106" font-family="monospace" font-size="11" fill="#818CF8">NumberSpinnerLayout.odometer</text>
+
+  <!-- Odometer Widget 1: Modern / Glass Style -->
+  <rect x="66" y="126" width="248" height="56" rx="16" fill="url(#glassGrad)" stroke="#6366F1" stroke-width="1.6"/>
+  <!-- Minus Button -->
+  <rect x="72" y="132" width="44" height="44" rx="12" fill="#6366F1" fill-opacity="0.16"/>
+  <rect x="87" y="153" width="14" height="2.4" rx="1.2" fill="#E2E8F0"/>
+  <!-- Center Selection Pill -->
+  <rect x="128" y="134" width="124" height="40" rx="10" fill="#6366F1" fill-opacity="0.18" stroke="#818CF8" stroke-opacity="0.45"/>
+  <!-- Rolling Digits inside Clip -->
+  <g clip-path="url(#odoClip1)">
+    <text x="176" y="161" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" fill="#F8FAFC" text-anchor="middle">4</text>
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-36; 0,-36; 0,-72; 0,-72; 0,-108; 0,-108; 0,0"
+        keyTimes="0; 0.18; 0.24; 0.43; 0.49; 0.68; 0.74; 0.93; 1"
+        dur="6s" repeatCount="indefinite"/>
+      <text x="196" y="161" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" fill="#818CF8" text-anchor="middle">2</text>
+      <text x="196" y="197" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" fill="#818CF8" text-anchor="middle">3</text>
+      <text x="196" y="233" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" fill="#818CF8" text-anchor="middle">4</text>
+      <text x="196" y="269" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" fill="#818CF8" text-anchor="middle">5</text>
+    </g>
+  </g>
+  <!-- Plus Button with pulse animation -->
+  <rect x="264" y="132" width="44" height="44" rx="12" fill="#6366F1">
+    <animate attributeName="fill-opacity" values="0.2; 0.55; 0.2; 0.55; 0.2; 0.55; 0.2; 0.55; 0.2" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="279" y="153" width="14" height="2.4" rx="1.2" fill="#FFFFFF"/>
+  <rect x="284.8" y="147" width="2.4" height="14" rx="1.2" fill="#FFFFFF"/>
+  <!-- Bottom Progress Bar -->
+  <rect x="78" y="178" width="224" height="3" rx="1.5" fill="#334155"/>
+  <rect x="78" y="178" width="95" height="3" rx="1.5" fill="#818CF8">
+    <animate attributeName="width"
+      values="95; 95; 125; 125; 155; 155; 185; 185; 95"
+      keyTimes="0; 0.18; 0.24; 0.43; 0.49; 0.68; 0.74; 0.93; 1"
+      dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <text x="332" y="152" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">Glass Preset</text>
+  <text x="332" y="168" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#64748B">Drag / Tap +</text>
+
+  <!-- Odometer Widget 2: Neon Cyber Currency Spinner -->
+  <rect x="66" y="202" width="248" height="56" rx="16" fill="#090D16" stroke="#00F5D4" stroke-width="1.6"/>
+  <!-- Minus Button -->
+  <rect x="72" y="208" width="44" height="44" rx="12" fill="#00F5D4" fill-opacity="0.14"/>
+  <rect x="87" y="229" width="14" height="2.4" rx="1.2" fill="#00F5D4"/>
+  <!-- Center Selection Pill -->
+  <rect x="124" y="210" width="132" height="40" rx="10" fill="#00F5D4" fill-opacity="0.12" stroke="#00F5D4" stroke-opacity="0.5"/>
+  <g clip-path="url(#odoClip2)" filter="url(#neonGlow)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-36; 0,-36; 0,-72; 0,-72; 0,0"
+        keyTimes="0; 0.25; 0.33; 0.58; 0.66; 0.92; 1"
+        dur="6s" repeatCount="indefinite"/>
+      <text x="190" y="237" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="#00F5D4" text-anchor="middle">$1,250</text>
+      <text x="190" y="273" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="#00F5D4" text-anchor="middle">$1,300</text>
+      <text x="190" y="309" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="#00F5D4" text-anchor="middle">$1,350</text>
+    </g>
+  </g>
+  <!-- Plus Button -->
+  <rect x="264" y="208" width="44" height="44" rx="12" fill="#00F5D4" fill-opacity="0.18"/>
+  <rect x="279" y="229" width="14" height="2.4" rx="1.2" fill="#00F5D4"/>
+  <rect x="284.8" y="223" width="2.4" height="14" rx="1.2" fill="#00F5D4"/>
+  <!-- Neon Progress Bar -->
+  <rect x="78" y="254" width="224" height="3" rx="1.5" fill="#1E293B"/>
+  <rect x="78" y="254" width="110" height="3" rx="1.5" fill="#00F5D4">
+    <animate attributeName="width"
+      values="110; 110; 150; 150; 190; 190; 110"
+      keyTimes="0; 0.25; 0.33; 0.58; 0.66; 0.92; 1"
+      dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <text x="332" y="228" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#00F5D4">Neon Preset</text>
+  <text x="332" y="244" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#64748B">Currency Format</text>
+
+  <!-- ======================================================================= -->
+  <!-- CARD 2 (TOP-RIGHT): 3D CYLINDRICAL WHEEL PICKER                         -->
+  <!-- ======================================================================= -->
+  <g filter="url(#cardShadow)">
+    <rect x="474" y="78" width="416" height="216" rx="18" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2"/>
+  </g>
+  <circle cx="496" cy="102" r="5" fill="#38BDF8"/>
+  <text x="510" y="106" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">2. 3D Wheel Picker (Vertical &amp; Horizontal)</text>
+
+  <!-- Vertical 3D Drum Wheel -->
+  <rect x="520" y="118" width="130" height="146" rx="16" fill="#0F172A" stroke="#38BDF8" stroke-opacity="0.5" stroke-width="1.5"/>
+  <!-- Center Selection Magnification Lens -->
+  <rect x="528" y="171" width="114" height="40" rx="10" fill="#38BDF8" fill-opacity="0.16" stroke="#38BDF8" stroke-opacity="0.65" stroke-width="1.2"/>
+
+  <!-- Scrolling 3D Wheel Items -->
+  <g clip-path="url(#wheelClipV)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-42; 0,-42; 0,-84; 0,-84; 0,0"
+        keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+        dur="6s" repeatCount="indefinite"/>
+      <!-- Item 07 -->
+      <text x="585" y="156" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#64748B" text-anchor="middle">07 : 00</text>
+      <!-- Item 08 (Initial Center) -->
+      <text x="585" y="198" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#38BDF8" text-anchor="middle">08 : 00</text>
+      <!-- Item 09 -->
+      <text x="585" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#38BDF8" text-anchor="middle">09 : 00</text>
+      <!-- Item 10 -->
+      <text x="585" y="282" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#38BDF8" text-anchor="middle">10 : 00</text>
+      <!-- Item 11 -->
+      <text x="585" y="324" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#64748B" text-anchor="middle">11 : 00</text>
+    </g>
+    <!-- Top/Bottom 3D Perspective Edge Fade Overlay -->
+    <rect x="520" y="118" width="130" height="48" fill="#0F172A" fill-opacity="0.58"/>
+    <rect x="520" y="216" width="130" height="48" fill="#0F172A" fill-opacity="0.58"/>
+  </g>
+  <text x="585" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">wheelVertical (loop: true)</text>
+
+  <!-- Horizontal 3D Carousel Wheel -->
+  <text x="771" y="146" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#E2E8F0" text-anchor="middle">Horizontal 3D Carousel</text>
+  <rect x="676" y="160" width="190" height="54" rx="14" fill="#0F172A" stroke="#818CF8" stroke-opacity="0.55" stroke-width="1.5"/>
+  <!-- Center Lens -->
+  <rect x="745" y="166" width="52" height="42" rx="10" fill="#6366F1" fill-opacity="0.22" stroke="#818CF8" stroke-width="1.2"/>
+  <g clip-path="url(#wheelClipH)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; -56,0; -56,0; -112,0; -112,0; 0,0"
+        keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+        dur="6s" repeatCount="indefinite"/>
+      <text x="715" y="193" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#64748B" text-anchor="middle">1x</text>
+      <text x="771" y="194" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#F8FAFC" text-anchor="middle">2x</text>
+      <text x="827" y="194" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#F8FAFC" text-anchor="middle">3x</text>
+      <text x="883" y="194" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#F8FAFC" text-anchor="middle">4x</text>
+      <text x="939" y="193" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#64748B" text-anchor="middle">5x</text>
+    </g>
+    <rect x="676" y="160" width="62" height="54" fill="#0F172A" fill-opacity="0.55"/>
+    <rect x="804" y="160" width="62" height="54" fill="#0F172A" fill-opacity="0.55"/>
+  </g>
+  <text x="771" y="236" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">wheelHorizontal</text>
+
+  <!-- ======================================================================= -->
+  <!-- CARD 3 (BOTTOM-LEFT): MULTI-DIGIT 3D DRUM COUNTER                       -->
+  <!-- ======================================================================= -->
+  <g filter="url(#cardShadow)">
+    <rect x="30" y="314" width="416" height="216" rx="18" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2"/>
+  </g>
+  <circle cx="52" cy="338" r="5" fill="#00F5D4"/>
+  <text x="66" y="342" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">3. Multi-Digit 3D Drum Odometer</text>
+  <text x="292" y="342" font-family="monospace" font-size="11" fill="#00F5D4">MultiDigitNumberSpinner</text>
+
+  <!-- Outer Multi-Digit Drum Box -->
+  <rect x="78" y="358" width="320" height="140" rx="18" fill="#090D16" stroke="#00F5D4" stroke-opacity="0.6" stroke-width="1.6"/>
+  <!-- Center Selection Bar across all digit drums -->
+  <rect x="86" y="408" width="304" height="40" rx="10" fill="#00F5D4" fill-opacity="0.13" stroke="#00F5D4" stroke-opacity="0.55" stroke-width="1.2"/>
+
+  <!-- Column Dividers -->
+  <line x1="147" y1="374" x2="147" y2="482" stroke="#1E293B" stroke-width="1.2"/>
+  <line x1="205" y1="374" x2="205" y2="482" stroke="#1E293B" stroke-width="1.2"/>
+
+  <!-- Digit Column 1 (Hundreds: 1) -->
+  <g clip-path="url(#drumClip1)">
+    <text x="118" y="392" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">0</text>
+    <text x="118" y="435" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#00F5D4" text-anchor="middle" filter="url(#neonGlow)">1</text>
+    <text x="118" y="478" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">2</text>
+  </g>
+
+  <!-- Digit Column 2 (Tens: 0) -->
+  <g clip-path="url(#drumClip2)">
+    <text x="176" y="392" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">9</text>
+    <text x="176" y="435" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#00F5D4" text-anchor="middle" filter="url(#neonGlow)">0</text>
+    <text x="176" y="478" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">1</text>
+  </g>
+
+  <!-- Digit Column 3 (Ones: 4 -> 5) -->
+  <g clip-path="url(#drumClip3)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-43; 0,-43; 0,0"
+        keyTimes="0; 0.45; 0.55; 0.9; 1"
+        dur="6s" repeatCount="indefinite"/>
+      <text x="234" y="392" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">3</text>
+      <text x="234" y="435" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#00F5D4" text-anchor="middle" filter="url(#neonGlow)">4</text>
+      <text x="234" y="478" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#00F5D4" text-anchor="middle" filter="url(#neonGlow)">5</text>
+      <text x="234" y="521" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">6</text>
+    </g>
+  </g>
+
+  <!-- Decimal Point Separator -->
+  <text x="270" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">.</text>
+
+  <!-- Digit Column 4 (Tenths: 5 -> 7 -> 9 -> 1) -->
+  <g clip-path="url(#drumClip4)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,-43; 0,-86; 0,-129; 0,0"
+        keyTimes="0; 0.25; 0.5; 0.75; 1"
+        dur="6s" repeatCount="indefinite"/>
+      <text x="306" y="392" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">3</text>
+      <text x="306" y="435" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#00F5D4" text-anchor="middle" filter="url(#neonGlow)">5</text>
+      <text x="306" y="478" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#00F5D4" text-anchor="middle" filter="url(#neonGlow)">7</text>
+      <text x="306" y="521" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#00F5D4" text-anchor="middle" filter="url(#neonGlow)">9</text>
+      <text x="306" y="564" font-family="system-ui, -apple-system, sans-serif" font-size="23" font-weight="800" fill="#00F5D4" text-anchor="middle" filter="url(#neonGlow)">1</text>
+    </g>
+  </g>
+
+  <!-- Suffix Unit -->
+  <text x="362" y="434" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#00F5D4" text-anchor="middle">MHz</text>
+  <text x="238" y="516" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">Independent place-value digit drums (100s, 10s, 1s, .1s)</text>
+
+  <!-- ======================================================================= -->
+  <!-- CARD 4 (BOTTOM-RIGHT): INTERACTIVE SLIDING RULER GAUGE                  -->
+  <!-- ======================================================================= -->
+  <g filter="url(#cardShadow)">
+    <rect x="474" y="314" width="416" height="216" rx="18" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2"/>
+  </g>
+  <circle cx="496" cy="338" r="5" fill="#F43F5E"/>
+  <text x="510" y="342" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#F8FAFC">4. Interactive Sliding Ruler Gauge</text>
+  <text x="730" y="342" font-family="monospace" font-size="11" fill="#FB7185">NumberSpinnerLayout.ruler</text>
+
+  <!-- Ruler Outer Container -->
+  <rect x="500" y="358" width="368" height="142" rx="18" fill="#0F172A" stroke="#F43F5E" stroke-opacity="0.55" stroke-width="1.6"/>
+
+  <!-- Header Row: Circle Minus, Live Readout Pill, Circle Plus -->
+  <circle cx="530" cy="384" r="14" fill="#F43F5E" fill-opacity="0.16"/>
+  <rect x="524" y="383" width="12" height="2" rx="1" fill="#FB7185"/>
+
+  <rect x="622" y="366" width="124" height="36" rx="18" fill="#F43F5E" fill-opacity="0.16" stroke="#F43F5E" stroke-opacity="0.65" stroke-width="1.2"/>
+  <g clip-path="url(#rulerBadgeClip)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-32; 0,-32; 0,-64; 0,-64; 0,0"
+        keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+        dur="6s" repeatCount="indefinite"/>
+      <text x="684" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="800" fill="#FB7185" text-anchor="middle">68.5 kg</text>
+      <text x="684" y="422" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="800" fill="#FB7185" text-anchor="middle">69.0 kg</text>
+      <text x="684" y="454" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="800" fill="#FB7185" text-anchor="middle">69.5 kg</text>
+    </g>
+  </g>
+
+  <circle cx="838" cy="384" r="14" fill="#F43F5E" fill-opacity="0.16"/>
+  <rect x="832" y="383" width="12" height="2" rx="1" fill="#FB7185"/>
+  <rect x="837" y="378" width="2" height="12" rx="1" fill="#FB7185"/>
+
+  <!-- Sliding Ruler Track -->
+  <g clip-path="url(#rulerClip)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; -40,0; -40,0; -80,0; -80,0; 0,0"
+        keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+        dur="6s" repeatCount="indefinite"/>
+
+      <!-- Tick Marks every 16px -->
+      <!-- Major 67.0 -->
+      <rect x="524" y="446" width="2" height="22" rx="1" fill="#94A3B8"/>
+      <text x="525" y="482" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#64748B" text-anchor="middle">67.0</text>
+      <rect x="544" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+      <rect x="564" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+      <rect x="584" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+
+      <!-- Major 68.0 -->
+      <rect x="604" y="446" width="2" height="22" rx="1" fill="#94A3B8"/>
+      <text x="605" y="482" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#94A3B8" text-anchor="middle">68.0</text>
+      <rect x="624" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+      <rect x="644" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+      <rect x="664" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+
+      <!-- Major 68.5 -->
+      <rect x="684" y="444" width="2.2" height="24" rx="1" fill="#E2E8F0"/>
+      <text x="685" y="482" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="middle">68.5</text>
+      <rect x="704" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+
+      <!-- Major 69.0 -->
+      <rect x="724" y="444" width="2.2" height="24" rx="1" fill="#E2E8F0"/>
+      <text x="725" y="482" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="middle">69.0</text>
+      <rect x="744" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+
+      <!-- Major 69.5 -->
+      <rect x="764" y="444" width="2.2" height="24" rx="1" fill="#E2E8F0"/>
+      <text x="765" y="482" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="middle">69.5</text>
+      <rect x="784" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+
+      <!-- Major 70.0 -->
+      <rect x="804" y="446" width="2" height="22" rx="1" fill="#94A3B8"/>
+      <text x="805" y="482" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#94A3B8" text-anchor="middle">70.0</text>
+      <rect x="824" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+      <rect x="844" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+      <rect x="864" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+
+      <!-- Major 71.0 -->
+      <rect x="884" y="446" width="2" height="22" rx="1" fill="#94A3B8"/>
+      <text x="885" y="482" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#64748B" text-anchor="middle">71.0</text>
+      <rect x="904" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+      <rect x="924" y="454" width="1.5" height="14" rx="0.75" fill="#475569"/>
+    </g>
+  </g>
+
+  <!-- Center Glowing Needle Pointer -->
+  <polygon points="678,412 690,412 684,421" fill="#F43F5E"/>
+  <rect x="682.5" y="421" width="3" height="48" rx="1.5" fill="#F43F5E" filter="url(#neonGlow)"/>
+
+  <!-- Ruler Bottom Progress Bar -->
+  <rect x="514" y="494" width="340" height="3" rx="1.5" fill="#1E293B"/>
+  <rect x="514" y="494" width="170" height="3" rx="1.5" fill="#F43F5E">
+    <animate attributeName="width"
+      values="170; 170; 210; 210; 250; 250; 170"
+      keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+      dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <text x="684" y="516" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">Snap-to-step tick gauge with live odometer readout</text>
+</svg>

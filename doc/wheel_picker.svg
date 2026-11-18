@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgW" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <clipPath id="vClip">
+      <rect x="44" y="42" width="136" height="138" rx="14"/>
+    </clipPath>
+    <clipPath id="hClip">
+      <rect x="206" y="84" width="184" height="56" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <rect width="420" height="200" rx="18" fill="url(#bgW)" stroke="#334155" stroke-width="1.5"/>
+  <text x="24" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">3D Wheel Picker (Vertical Drum &amp; Horizontal Carousel)</text>
+
+  <!-- Vertical 3D Wheel -->
+  <rect x="44" y="42" width="136" height="138" rx="16" fill="#090D16" stroke="#38BDF8" stroke-opacity="0.55" stroke-width="1.5"/>
+  <rect x="52" y="91" width="120" height="40" rx="10" fill="#38BDF8" fill-opacity="0.16" stroke="#38BDF8" stroke-opacity="0.65"/>
+
+  <g clip-path="url(#vClip)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-42; 0,-42; 0,-84; 0,-84; 0,0"
+        keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+        dur="5s" repeatCount="indefinite"/>
+      <text x="112" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#64748B" text-anchor="middle">07 : 00</text>
+      <text x="112" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#38BDF8" text-anchor="middle">08 : 00</text>
+      <text x="112" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#38BDF8" text-anchor="middle">09 : 00</text>
+      <text x="112" y="202" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#38BDF8" text-anchor="middle">10 : 00</text>
+      <text x="112" y="244" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#64748B" text-anchor="middle">11 : 00</text>
+    </g>
+    <rect x="44" y="42" width="136" height="44" fill="#090D16" fill-opacity="0.58"/>
+    <rect x="44" y="136" width="136" height="44" fill="#090D16" fill-opacity="0.58"/>
+  </g>
+
+  <!-- Horizontal 3D Carousel -->
+  <text x="298" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#94A3B8" text-anchor="middle">wheelHorizontal</text>
+  <rect x="206" y="84" width="184" height="56" rx="14" fill="#090D16" stroke="#818CF8" stroke-opacity="0.55" stroke-width="1.5"/>
+  <rect x="272" y="90" width="52" height="44" rx="10" fill="#6366F1" fill-opacity="0.22" stroke="#818CF8"/>
+
+  <g clip-path="url(#hClip)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; -56,0; -56,0; -112,0; -112,0; 0,0"
+        keyTimes="0; 0.25; 0.35; 0.6; 0.7; 0.92; 1"
+        dur="5s" repeatCount="indefinite"/>
+      <text x="242" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#64748B" text-anchor="middle">1x</text>
+      <text x="298" y="119" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#F8FAFC" text-anchor="middle">2x</text>
+      <text x="354" y="119" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#F8FAFC" text-anchor="middle">3x</text>
+      <text x="410" y="119" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#F8FAFC" text-anchor="middle">4x</text>
+      <text x="466" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#64748B" text-anchor="middle">5x</text>
+    </g>
+    <rect x="206" y="84" width="58" height="56" fill="#090D16" fill-opacity="0.58"/>
+    <rect x="332" y="84" width="58" height="56" fill="#090D16" fill-opacity="0.58"/>
+  </g>
+  <text x="298" y="162" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">3D Perspective + Magnifier Lens</text>
+</svg>

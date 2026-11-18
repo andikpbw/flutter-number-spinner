@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Added animated visual previews and interactive component showcase diagrams (`Odometer Number Spinner`, `3D Wheel Picker`, `Multi-Digit 3D Drum Counter`, and `Interactive Sliding Ruler Gauge`) to `README.md`.
+
 ## 1.0.1
 
 - Migrated core library widgets (`lib/`) from `package:flutter/material.dart` to `package:flutter/widgets.dart` for full Flutter 3.47+ static analysis compatibility and framework independence (`MaterialApp`, `CupertinoApp`, and `WidgetsApp`).

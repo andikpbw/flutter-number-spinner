@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <clipPath id="dClip3">
+      <rect x="176" y="46" width="54" height="130" rx="10"/>
+    </clipPath>
+    <clipPath id="dClip4">
+      <rect x="250" y="46" width="54" height="130" rx="10"/>
+    </clipPath>
+  </defs>
+
+  <rect width="420" height="200" rx="18" fill="url(#bgM)" stroke="#334155" stroke-width="1.5"/>
+  <text x="24" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">Multi-Digit 3D Drum Odometer Counter</text>
+
+  <rect x="46" y="42" width="328" height="138" rx="18" fill="#090D16" stroke="#00F5D4" stroke-opacity="0.6" stroke-width="1.6"/>
+  <rect x="54" y="91" width="312" height="40" rx="10" fill="#00F5D4" fill-opacity="0.14" stroke="#00F5D4" stroke-opacity="0.55"/>
+
+  <line x1="115" y1="56" x2="115" y2="166" stroke="#1E293B" stroke-width="1.2"/>
+  <line x1="173" y1="56" x2="173" y2="166" stroke="#1E293B" stroke-width="1.2"/>
+
+  <!-- Column 1: 100s -->
+  <text x="86" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">0</text>
+  <text x="86" y="119" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">1</text>
+  <text x="86" y="162" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">2</text>
+
+  <!-- Column 2: 10s -->
+  <text x="144" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">9</text>
+  <text x="144" y="119" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">0</text>
+  <text x="144" y="162" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">1</text>
+
+  <!-- Column 3: 1s -->
+  <g clip-path="url(#dClip3)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,0; 0,-43; 0,-43; 0,0"
+        keyTimes="0; 0.45; 0.55; 0.9; 1"
+        dur="5s" repeatCount="indefinite"/>
+      <text x="202" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">3</text>
+      <text x="202" y="119" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">4</text>
+      <text x="202" y="162" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">5</text>
+      <text x="202" y="205" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">6</text>
+    </g>
+  </g>
+
+  <!-- Decimal Point -->
+  <text x="238" y="120" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">.</text>
+
+  <!-- Column 4: .1s -->
+  <g clip-path="url(#dClip4)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,-43; 0,-86; 0,-129; 0,0"
+        keyTimes="0; 0.25; 0.5; 0.75; 1"
+        dur="5s" repeatCount="indefinite"/>
+      <text x="276" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#475569" text-anchor="middle">3</text>
+      <text x="276" y="119" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">5</text>
+      <text x="276" y="162" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">6</text>
+      <text x="276" y="205" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">7</text>
+      <text x="276" y="248" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#00F5D4" text-anchor="middle">8</text>
+    </g>
+  </g>
+
+  <text x="334" y="117" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#00F5D4" text-anchor="middle">MHz</text>
+</svg>
