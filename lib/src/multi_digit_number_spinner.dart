@@ -1,11 +1,15 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'number_spinner_controller.dart';
 import 'number_spinner_math.dart';
 import 'number_spinner_style.dart';
 import 'number_spinner_types.dart';
+
+const Color _kWhite = Color(0xFFFFFFFF);
+const Color _kBlack = Color(0xFF000000);
+const Color _kTransparent = Color(0x00000000);
 
 /// Multi-column 3D digit-wheel spinner where each place-value digit (`0..9`)
 /// is displayed in its own scrollable drum column.
@@ -281,20 +285,33 @@ class _MultiDigitNumberSpinnerState extends State<MultiDigitNumberSpinner> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
+    final baseTextColor =
+        DefaultTextStyle.of(context).style.color ?? const Color(0xFF0F172A);
+    final isDark = baseTextColor.computeLuminance() > 0.5 ||
+        MediaQuery.maybePlatformBrightnessOf(context) == Brightness.dark;
+    final defaultPrimary =
+        isDark ? const Color(0xFF818CF8) : const Color(0xFF4F46E5);
+    final defaultSurface =
+        isDark ? const Color(0xFF1E293B) : const Color(0xFFFFFFFF);
+    final defaultOnSurface =
+        isDark ? const Color(0xFFF8FAFC) : const Color(0xFF0F172A);
+    final defaultOnSurfaceVariant =
+        isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B);
+    final defaultOutlineVariant =
+        isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1);
+
     final style = widget.style;
     final isNeon = style.preset == NumberSpinnerThemePreset.neon;
 
-    final accentColor = style.accentColor ?? colorScheme.primary;
+    final accentColor = style.accentColor ?? defaultPrimary;
     final itemExtent = style.itemExtent ?? 42.0;
     final height = style.height ?? (itemExtent * style.visibleItemCount);
     final backgroundColor = style.backgroundColor ??
-        (isNeon ? const Color(0xFF0F172A) : colorScheme.surface);
+        (isNeon ? const Color(0xFF0F172A) : defaultSurface);
     final borderColor = style.borderColor ??
         (isNeon
             ? accentColor.withValues(alpha: 0.55)
-            : colorScheme.outlineVariant.withValues(alpha: 0.75));
+            : defaultOutlineVariant.withValues(alpha: 0.75));
     final selectionHighlightColor =
         style.selectionHighlightColor ?? accentColor.withValues(alpha: 0.14);
     final selectionBorderColor =
@@ -303,7 +320,7 @@ class _MultiDigitNumberSpinnerState extends State<MultiDigitNumberSpinner> {
     final selectedTextStyle = TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.w800,
-      color: isNeon ? accentColor : colorScheme.onSurface,
+      color: isNeon ? accentColor : defaultOnSurface,
       fontFeatures: const [FontFeature.tabularFigures()],
     ).merge(style.selectedTextStyle);
 
@@ -311,8 +328,8 @@ class _MultiDigitNumberSpinnerState extends State<MultiDigitNumberSpinner> {
       fontSize: 16,
       fontWeight: FontWeight.w500,
       color: isNeon
-          ? Colors.white.withValues(alpha: 0.38)
-          : colorScheme.onSurfaceVariant.withValues(alpha: 0.55),
+          ? _kWhite.withValues(alpha: 0.38)
+          : defaultOnSurfaceVariant.withValues(alpha: 0.55),
       fontFeatures: const [FontFeature.tabularFigures()],
     ).merge(style.unselectedTextStyle);
 
@@ -443,10 +460,11 @@ class _MultiDigitNumberSpinnerState extends State<MultiDigitNumberSpinner> {
       children: [
         Text(
           widget.labelText!,
-          style: theme.textTheme.labelLarge?.copyWith(
-            fontWeight: FontWeight.w600,
-            color: colorScheme.onSurfaceVariant,
-          ),
+          style: DefaultTextStyle.of(context).style.copyWith(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: defaultOnSurfaceVariant,
+              ),
         ),
         const SizedBox(height: 6),
         spinnerBox,
@@ -521,10 +539,10 @@ class _MultiDigitNumberSpinnerState extends State<MultiDigitNumberSpinner> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.transparent,
-              Colors.black,
-              Colors.black,
-              Colors.transparent,
+              _kTransparent,
+              _kBlack,
+              _kBlack,
+              _kTransparent,
             ],
             stops: [0.0, 0.22, 0.78, 1.0],
           ).createShader(rect);

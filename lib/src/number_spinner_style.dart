@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'number_spinner_types.dart';
+
+const Color _kWhite = Color(0xFFFFFFFF);
 
 /// Visual styling and geometry configuration for `NumberSpinner` and
 /// `MultiDigitNumberSpinner`.
@@ -95,7 +97,7 @@ class NumberSpinnerStyle {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
-          Colors.white.withValues(alpha: 0.22),
+          _kWhite.withValues(alpha: 0.22),
           accent.withValues(alpha: 0.08),
         ],
       ),
@@ -142,17 +144,17 @@ class NumberSpinnerStyle {
         ],
       ),
       unselectedTextStyle: TextStyle(
-        color: Colors.white.withValues(alpha: 0.45),
+        color: _kWhite.withValues(alpha: 0.45),
         fontWeight: FontWeight.w500,
       ),
       buttonBackgroundColor: accentColor.withValues(alpha: 0.14),
       buttonIconColor: accentColor,
-      disabledButtonIconColor: Colors.white.withValues(alpha: 0.22),
+      disabledButtonIconColor: _kWhite.withValues(alpha: 0.22),
       rulerIndicatorColor: accentColor,
       rulerMajorTickColor: accentColor.withValues(alpha: 0.7),
-      rulerMinorTickColor: Colors.white.withValues(alpha: 0.25),
+      rulerMinorTickColor: _kWhite.withValues(alpha: 0.25),
       progressColor: accentColor,
-      progressTrackColor: Colors.white.withValues(alpha: 0.1),
+      progressTrackColor: _kWhite.withValues(alpha: 0.1),
       boxShadow: [
         BoxShadow(
           color: accentColor.withValues(alpha: 0.25),

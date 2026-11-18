@@ -1,3 +1,7 @@
+## 1.0.1
+
+- Migrated core library widgets (`lib/`) from `package:flutter/material.dart` to `package:flutter/widgets.dart` for full Flutter 3.47+ static analysis compatibility and framework independence (`MaterialApp`, `CupertinoApp`, and `WidgetsApp`).
+
 ## 1.0.0
 
 - Initial release of `number_spinner`.

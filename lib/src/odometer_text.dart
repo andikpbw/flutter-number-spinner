@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'number_spinner_format.dart';
 import 'number_spinner_types.dart';
@@ -89,8 +89,11 @@ class _OdometerNumberTextState extends State<OdometerNumberText> {
   @override
   Widget build(BuildContext context) {
     final text = _displayText;
-    final effectiveStyle =
-        widget.style ?? Theme.of(context).textTheme.titleMedium;
+    final effectiveStyle = widget.style ??
+        DefaultTextStyle.of(context).style.copyWith(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            );
 
     if (!widget.animatePerCharacter) {
       return ClipRect(

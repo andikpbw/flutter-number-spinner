@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -260,9 +262,9 @@ void main() {
       // Tap center to enter direct edit mode
       await tester.tap(find.byType(OdometerNumberText));
       await tester.pumpAndSettle();
-      expect(find.byType(TextField), findsOneWidget);
+      expect(find.byType(EditableText), findsOneWidget);
 
-      await tester.enterText(find.byType(TextField), '77');
+      await tester.enterText(find.byType(EditableText), '77');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pumpAndSettle();
       expect(controller.value, 77);

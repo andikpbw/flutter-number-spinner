@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'number_spinner_controller.dart';
 import 'number_spinner_format.dart';

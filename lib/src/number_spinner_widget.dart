@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 import 'number_spinner_controller.dart';
 import 'number_spinner_format.dart';
@@ -11,6 +11,39 @@ import 'number_spinner_math.dart';
 import 'number_spinner_style.dart';
 import 'number_spinner_types.dart';
 import 'odometer_text.dart';
+
+const Color _kWhite = Color(0xFFFFFFFF);
+const Color _kBlack = Color(0xFF000000);
+const Color _kTransparent = Color(0x00000000);
+
+const IconData _kIconAddRounded = IconData(
+  0xf537,
+  fontFamily: 'MaterialIcons',
+);
+const IconData _kIconRemoveRounded = IconData(
+  0xf00f1,
+  fontFamily: 'MaterialIcons',
+);
+const IconData _kIconArrowUpRounded = IconData(
+  0xf82e,
+  fontFamily: 'MaterialIcons',
+);
+const IconData _kIconArrowDownRounded = IconData(
+  0xf82b,
+  fontFamily: 'MaterialIcons',
+);
+const IconData _kIconArrowLeftRounded = IconData(
+  0xf82c,
+  fontFamily: 'MaterialIcons',
+);
+const IconData _kIconArrowRightRounded = IconData(
+  0xf82d,
+  fontFamily: 'MaterialIcons',
+);
+const IconData _kIconArrowDropDownRounded = IconData(
+  0xf577,
+  fontFamily: 'MaterialIcons',
+);
 
 /// A modern, eye-catching animated number spinner widget for Flutter.
 ///
@@ -503,12 +536,15 @@ class _NumberSpinnerState extends State<NumberSpinner> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
+    final baseTextStyle = DefaultTextStyle.of(context).style;
+    final baseTextColor = baseTextStyle.color ?? const Color(0xFF0F172A);
+    final isDark = baseTextColor.computeLuminance() > 0.5 ||
+        MediaQuery.maybePlatformBrightnessOf(context) == Brightness.dark;
+    final palette = _AmbientPalette.fromBrightness(isDark: isDark);
     final hasError =
         widget.errorText != null && widget.errorText!.trim().isNotEmpty;
     final metrics = _resolveMetrics(widget.size, widget.layout, widget.style);
-    final colors = _resolveColors(colorScheme, hasError);
+    final colors = _resolveColors(palette, hasError);
 
     final formattedValue = widget.format.format(
       _controller.value,
@@ -654,13 +690,14 @@ class _NumberSpinnerState extends State<NumberSpinner> {
         if (widget.labelText != null) ...[
           Text(
             widget.labelText!,
-            style: theme.textTheme.labelLarge?.copyWith(
+            style: baseTextStyle.copyWith(
+              fontSize: 14,
               fontWeight: FontWeight.w600,
               color: hasError
-                  ? colorScheme.error
+                  ? palette.error
                   : (_isFocused
                       ? colors.accentColor
-                      : colorScheme.onSurfaceVariant),
+                      : palette.onSurfaceVariant),
             ),
           ),
           const SizedBox(height: 6),
@@ -670,8 +707,9 @@ class _NumberSpinnerState extends State<NumberSpinner> {
           const SizedBox(height: 4),
           Text(
             widget.errorText!,
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: colorScheme.error,
+            style: baseTextStyle.copyWith(
+              fontSize: 12,
+              color: palette.error,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -679,8 +717,9 @@ class _NumberSpinnerState extends State<NumberSpinner> {
           const SizedBox(height: 4),
           Text(
             widget.helperText!,
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: colorScheme.onSurfaceVariant,
+            style: baseTextStyle.copyWith(
+              fontSize: 12,
+              color: palette.onSurfaceVariant,
             ),
           ),
         ],
@@ -722,7 +761,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
               isIncrement: false,
               metrics: metrics,
               colors: colors,
-              icon: widget.style.decrementIcon ?? Icons.remove_rounded,
+              icon: widget.style.decrementIcon ?? _kIconRemoveRounded,
             ),
             if (widget.style.width != null)
               Expanded(child: centerDisplay)
@@ -732,7 +771,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
               isIncrement: true,
               metrics: metrics,
               colors: colors,
-              icon: widget.style.incrementIcon ?? Icons.add_rounded,
+              icon: widget.style.incrementIcon ?? _kIconAddRounded,
             ),
           ],
         );
@@ -760,8 +799,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
                       isIncrement: true,
                       metrics: metrics,
                       colors: colors,
-                      icon: widget.style.incrementIcon ??
-                          Icons.keyboard_arrow_up_rounded,
+                      icon: widget.style.incrementIcon ?? _kIconArrowUpRounded,
                       compact: true,
                     ),
                   ),
@@ -775,8 +813,8 @@ class _NumberSpinnerState extends State<NumberSpinner> {
                       isIncrement: false,
                       metrics: metrics,
                       colors: colors,
-                      icon: widget.style.decrementIcon ??
-                          Icons.keyboard_arrow_down_rounded,
+                      icon:
+                          widget.style.decrementIcon ?? _kIconArrowDownRounded,
                       compact: true,
                     ),
                   ),
@@ -794,8 +832,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
               isIncrement: true,
               metrics: metrics,
               colors: colors,
-              icon:
-                  widget.style.incrementIcon ?? Icons.keyboard_arrow_up_rounded,
+              icon: widget.style.incrementIcon ?? _kIconArrowUpRounded,
               fullWidth: true,
             ),
             Expanded(child: centerDisplay),
@@ -803,8 +840,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
               isIncrement: false,
               metrics: metrics,
               colors: colors,
-              icon: widget.style.decrementIcon ??
-                  Icons.keyboard_arrow_down_rounded,
+              icon: widget.style.decrementIcon ?? _kIconArrowDownRounded,
               fullWidth: true,
             ),
           ],
@@ -824,19 +860,16 @@ class _NumberSpinnerState extends State<NumberSpinner> {
     if (_isEditingDirectly && _directEditController != null) {
       valueChild = SizedBox(
         width: math.max(64, metrics.minCenterWidth),
-        child: TextField(
-          controller: _directEditController,
-          focusNode: _directEditFocusNode,
+        child: EditableText(
+          controller: _directEditController!,
+          focusNode: _directEditFocusNode!,
           textAlign: TextAlign.center,
           style: colors.selectedTextStyle,
+          cursorColor: colors.accentColor,
+          backgroundCursorColor: colors.unselectedTextStyle.color ?? _kBlack,
           keyboardType: const TextInputType.numberWithOptions(
             signed: true,
             decimal: true,
-          ),
-          decoration: const InputDecoration(
-            isDense: true,
-            border: InputBorder.none,
-            contentPadding: EdgeInsets.zero,
           ),
           onSubmitted: (_) => _commitDirectInput(),
         ),
@@ -908,7 +941,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
             color: colors.selectionHighlightColor,
             borderRadius:
                 widget.style.selectionBorderRadius ?? BorderRadius.circular(10),
-            border: colors.selectionBorderColor != Colors.transparent
+            border: colors.selectionBorderColor != _kTransparent
                 ? Border.all(color: colors.selectionBorderColor, width: 1)
                 : null,
           ),
@@ -961,7 +994,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
             isIncrement: true,
             metrics: metrics,
             colors: colors,
-            icon: widget.style.incrementIcon ?? Icons.keyboard_arrow_up_rounded,
+            icon: widget.style.incrementIcon ?? _kIconArrowUpRounded,
             fullWidth: true,
           ),
           Expanded(child: wheelCore),
@@ -969,8 +1002,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
             isIncrement: false,
             metrics: metrics,
             colors: colors,
-            icon:
-                widget.style.decrementIcon ?? Icons.keyboard_arrow_down_rounded,
+            icon: widget.style.decrementIcon ?? _kIconArrowDownRounded,
             fullWidth: true,
           ),
         ],
@@ -984,14 +1016,14 @@ class _NumberSpinnerState extends State<NumberSpinner> {
             isIncrement: false,
             metrics: metrics,
             colors: colors,
-            icon: widget.style.decrementIcon ?? Icons.remove_rounded,
+            icon: widget.style.decrementIcon ?? _kIconRemoveRounded,
           ),
           Expanded(child: wheelCore),
           _buildStepperButton(
             isIncrement: true,
             metrics: metrics,
             colors: colors,
-            icon: widget.style.incrementIcon ?? Icons.add_rounded,
+            icon: widget.style.incrementIcon ?? _kIconAddRounded,
           ),
         ],
       );
@@ -1045,16 +1077,14 @@ class _NumberSpinnerState extends State<NumberSpinner> {
             isIncrement: false,
             metrics: metrics,
             colors: colors,
-            icon:
-                widget.style.decrementIcon ?? Icons.keyboard_arrow_left_rounded,
+            icon: widget.style.decrementIcon ?? _kIconArrowLeftRounded,
           ),
           Expanded(child: wheelCore),
           _buildStepperButton(
             isIncrement: true,
             metrics: metrics,
             colors: colors,
-            icon: widget.style.incrementIcon ??
-                Icons.keyboard_arrow_right_rounded,
+            icon: widget.style.incrementIcon ?? _kIconArrowRightRounded,
           ),
         ],
       );
@@ -1081,7 +1111,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
             _buildCompactCircleButton(
               isIncrement: false,
               colors: colors,
-              icon: widget.style.decrementIcon ?? Icons.remove_rounded,
+              icon: widget.style.decrementIcon ?? _kIconRemoveRounded,
             )
           else
             const SizedBox(width: 28),
@@ -1122,7 +1152,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
             _buildCompactCircleButton(
               isIncrement: true,
               colors: colors,
-              icon: widget.style.incrementIcon ?? Icons.add_rounded,
+              icon: widget.style.incrementIcon ?? _kIconAddRounded,
             )
           else
             const SizedBox(width: 28),
@@ -1232,7 +1262,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  Icons.arrow_drop_down_rounded,
+                  _kIconArrowDropDownRounded,
                   size: 20,
                   color: colors.rulerIndicatorColor,
                 ),
@@ -1384,10 +1414,10 @@ class _NumberSpinnerState extends State<NumberSpinner> {
               ? Alignment.bottomCenter
               : Alignment.centerRight,
           colors: const [
-            Colors.transparent,
-            Colors.black,
-            Colors.black,
-            Colors.transparent,
+            _kTransparent,
+            _kBlack,
+            _kBlack,
+            _kTransparent,
           ],
           stops: const [0.0, 0.22, 0.78, 1.0],
         ).createShader(rect);
@@ -1410,19 +1440,19 @@ class _NumberSpinnerState extends State<NumberSpinner> {
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
+      onTap: canAct ? () => _stepBy(isIncrement ? 1 : -1) : null,
       onTapDown: canAct
           ? (_) => _startLongPressRepeat(isIncrement: isIncrement)
           : null,
       onTapUp: (_) => _stopRepeatTimers(),
       onTapCancel: _stopRepeatTimers,
-      child: Material(
-        color: colors.buttonBackgroundColor,
-        borderRadius: widget.style.buttonBorderRadius,
-        child: InkWell(
-          onTap: canAct ? () => _stepBy(isIncrement ? 1 : -1) : null,
-          hoverColor: colors.buttonHoverColor,
-          splashColor: colors.buttonSplashColor,
-          borderRadius: widget.style.buttonBorderRadius,
+      child: MouseRegion(
+        cursor: canAct ? SystemMouseCursors.click : SystemMouseCursors.basic,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: colors.buttonBackgroundColor,
+            borderRadius: widget.style.buttonBorderRadius,
+          ),
           child: SizedBox(
             width: fullWidth ? double.infinity : metrics.buttonSize,
             height: fullWidth
@@ -1452,26 +1482,31 @@ class _NumberSpinnerState extends State<NumberSpinner> {
         (isIncrement ? _controller.canIncrement : _controller.canDecrement);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: canAct ? () => _stepBy(isIncrement ? 1 : -1) : null,
       onTapDown: canAct
           ? (_) => _startLongPressRepeat(isIncrement: isIncrement)
           : null,
       onTapUp: (_) => _stopRepeatTimers(),
       onTapCancel: _stopRepeatTimers,
-      child: Material(
-        color: colors.buttonBackgroundColor,
-        shape: const CircleBorder(),
-        child: InkWell(
-          customBorder: const CircleBorder(),
-          onTap: canAct ? () => _stepBy(isIncrement ? 1 : -1) : null,
+      child: MouseRegion(
+        cursor: canAct ? SystemMouseCursors.click : SystemMouseCursors.basic,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: colors.buttonBackgroundColor,
+            shape: BoxShape.circle,
+          ),
           child: SizedBox(
             width: 28,
             height: 28,
-            child: Icon(
-              icon,
-              size: 16,
-              color: canAct
-                  ? colors.buttonIconColor
-                  : colors.disabledButtonIconColor,
+            child: Center(
+              child: Icon(
+                icon,
+                size: 16,
+                color: canAct
+                    ? colors.buttonIconColor
+                    : colors.disabledButtonIconColor,
+              ),
             ),
           ),
         ),
@@ -1482,11 +1517,18 @@ class _NumberSpinnerState extends State<NumberSpinner> {
   Widget _buildProgressBar(_SpinnerColors colors) {
     return SizedBox(
       height: widget.style.progressHeight,
-      child: LinearProgressIndicator(
-        value: _controller.progress,
-        backgroundColor: colors.progressTrackColor,
-        valueColor: AlwaysStoppedAnimation<Color>(colors.progressColor),
-        minHeight: widget.style.progressHeight,
+      child: DecoratedBox(
+        decoration: BoxDecoration(color: colors.progressTrackColor),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: FractionallySizedBox(
+            widthFactor: _controller.progress.clamp(0.0, 1.0),
+            heightFactor: 1.0,
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: colors.progressColor),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -1588,26 +1630,26 @@ class _NumberSpinnerState extends State<NumberSpinner> {
     );
   }
 
-  _SpinnerColors _resolveColors(ColorScheme colorScheme, bool hasError) {
+  _SpinnerColors _resolveColors(_AmbientPalette palette, bool hasError) {
     final style = widget.style;
     final isNeon = style.preset == NumberSpinnerThemePreset.neon;
     final isSoft = style.preset == NumberSpinnerThemePreset.soft;
     final isMinimal = style.preset == NumberSpinnerThemePreset.minimal;
 
-    final accentColor = style.accentColor ?? colorScheme.primary;
+    final accentColor = style.accentColor ?? palette.primary;
     final backgroundColor = style.backgroundColor ??
         (isNeon
             ? const Color(0xFF0F172A)
             : (isMinimal
-                ? colorScheme.surfaceContainerHighest.withValues(alpha: 0.45)
-                : colorScheme.surface));
+                ? palette.surfaceContainerHighest.withValues(alpha: 0.45)
+                : palette.surface));
 
     final borderColor = hasError
-        ? (style.errorBorderColor ?? colorScheme.error)
+        ? (style.errorBorderColor ?? palette.error)
         : (_isFocused
             ? (style.focusedBorderColor ?? accentColor)
             : (style.borderColor ??
-                colorScheme.outlineVariant.withValues(alpha: 0.75)));
+                palette.outlineVariant.withValues(alpha: 0.75)));
 
     final selectionHighlightColor = style.selectionHighlightColor ??
         accentColor.withValues(alpha: isMinimal ? 0.08 : 0.12);
@@ -1620,7 +1662,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
     final selectedTextStyle = TextStyle(
       fontSize: metrics.fontSize,
       fontWeight: FontWeight.w700,
-      color: isNeon ? accentColor : colorScheme.onSurface,
+      color: isNeon ? accentColor : palette.onSurface,
       fontFeatures: const [FontFeature.tabularFigures()],
     ).merge(style.selectedTextStyle);
 
@@ -1628,28 +1670,28 @@ class _NumberSpinnerState extends State<NumberSpinner> {
       fontSize: metrics.fontSize * 0.85,
       fontWeight: FontWeight.w500,
       color: isNeon
-          ? Colors.white.withValues(alpha: 0.45)
-          : colorScheme.onSurfaceVariant.withValues(alpha: 0.65),
+          ? _kWhite.withValues(alpha: 0.45)
+          : palette.onSurfaceVariant.withValues(alpha: 0.65),
       fontFeatures: const [FontFeature.tabularFigures()],
     ).merge(style.unselectedTextStyle);
 
     final buttonBackgroundColor = style.buttonBackgroundColor ??
-        (isMinimal ? Colors.transparent : accentColor.withValues(alpha: 0.08));
+        (isMinimal ? _kTransparent : accentColor.withValues(alpha: 0.08));
 
     final buttonHoverColor =
         style.buttonHoverColor ?? accentColor.withValues(alpha: 0.14);
     final buttonSplashColor =
         style.buttonSplashColor ?? accentColor.withValues(alpha: 0.2);
     final buttonIconColor =
-        style.buttonIconColor ?? (isNeon ? accentColor : colorScheme.onSurface);
+        style.buttonIconColor ?? (isNeon ? accentColor : palette.onSurface);
     final disabledButtonIconColor = style.disabledButtonIconColor ??
-        colorScheme.onSurface.withValues(alpha: 0.26);
+        palette.onSurface.withValues(alpha: 0.26);
 
     final List<BoxShadow> boxShadow = style.boxShadow ??
         (isSoft
             ? [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.07),
+                  color: _kBlack.withValues(alpha: 0.07),
                   blurRadius: 14,
                   offset: const Offset(0, 5),
                 ),
@@ -1662,7 +1704,7 @@ class _NumberSpinnerState extends State<NumberSpinner> {
             : [
                 if (_isFocused)
                   BoxShadow(
-                    color: (hasError ? colorScheme.error : accentColor)
+                    color: (hasError ? palette.error : accentColor)
                         .withValues(alpha: 0.18),
                     blurRadius: 10,
                     spreadRadius: 1,
@@ -1687,12 +1729,55 @@ class _NumberSpinnerState extends State<NumberSpinner> {
           style.progressTrackColor ?? accentColor.withValues(alpha: 0.12),
       progressColor: style.progressColor ?? accentColor,
       rulerMajorTickColor: style.rulerMajorTickColor ??
-          colorScheme.onSurface.withValues(alpha: 0.65),
+          palette.onSurface.withValues(alpha: 0.65),
       rulerMinorTickColor: style.rulerMinorTickColor ??
-          colorScheme.onSurfaceVariant.withValues(alpha: 0.3),
+          palette.onSurfaceVariant.withValues(alpha: 0.3),
       rulerIndicatorColor: style.rulerIndicatorColor ?? accentColor,
     );
   }
+}
+
+class _AmbientPalette {
+  const _AmbientPalette({
+    required this.primary,
+    required this.surface,
+    required this.surfaceContainerHighest,
+    required this.onSurface,
+    required this.onSurfaceVariant,
+    required this.outlineVariant,
+    required this.error,
+  });
+
+  factory _AmbientPalette.fromBrightness({required bool isDark}) {
+    if (isDark) {
+      return const _AmbientPalette(
+        primary: Color(0xFF818CF8),
+        surface: Color(0xFF1E293B),
+        surfaceContainerHighest: Color(0xFF334155),
+        onSurface: Color(0xFFF8FAFC),
+        onSurfaceVariant: Color(0xFF94A3B8),
+        outlineVariant: Color(0xFF334155),
+        error: Color(0xFFF87171),
+      );
+    }
+    return const _AmbientPalette(
+      primary: Color(0xFF4F46E5),
+      surface: Color(0xFFFFFFFF),
+      surfaceContainerHighest: Color(0xFFE2E8F0),
+      onSurface: Color(0xFF0F172A),
+      onSurfaceVariant: Color(0xFF64748B),
+      outlineVariant: Color(0xFFCBD5E1),
+      error: Color(0xFFDC2626),
+    );
+  }
+
+  final Color primary;
+  final Color surface;
+  final Color surfaceContainerHighest;
+  final Color onSurface;
+  final Color onSurfaceVariant;
+  final Color outlineVariant;
+  final Color error;
 }
 
 class _SpinnerMetrics {

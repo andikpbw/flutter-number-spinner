@@ -46,7 +46,7 @@ Add `number_spinner` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  number_spinner: ^1.0.0
+  number_spinner: ^1.0.1
 ```
 
 Or install via the Flutter CLI:
