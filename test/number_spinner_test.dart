@@ -416,4 +416,60 @@ void main() {
       expect(formKey.currentState!.validate(), isFalse);
     });
   });
+
+  group('SpinWheelNumberSpinner', () {
+    testWidgets(
+        'spins to target value, adds/removes numbers, and excludes winners', (
+      tester,
+    ) async {
+      final controller = SpinWheelController(
+        min: 1,
+        max: 10,
+        step: 1,
+        initialValue: 1,
+      );
+      num? spinResult;
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SpinWheelNumberSpinner(
+              controller: controller,
+              labelText: 'Spin Number',
+              spinDuration: const Duration(milliseconds: 300),
+              onSpinEnd: (winner) => spinResult = winner,
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('Spin Number'), findsOneWidget);
+      expect(controller.items.length, 10);
+
+      controller.spin(
+        targetValue: 7,
+        minRotations: 2,
+        duration: const Duration(milliseconds: 300),
+      );
+      await tester.pumpAndSettle();
+
+      expect(controller.selectedValue, 7);
+      expect(spinResult, 7);
+
+      controller.addNumber();
+      expect(controller.items.length, 11);
+      expect(controller.items.last, 11);
+
+      expect(controller.removeLastNumber(), isTrue);
+      expect(controller.items.length, 10);
+
+      expect(controller.excludeNumber(7), isTrue);
+      expect(controller.items.contains(7), isFalse);
+
+      controller.resetNumbers();
+      expect(controller.items.length, 10);
+
+      controller.dispose();
+    });
+  });
 }

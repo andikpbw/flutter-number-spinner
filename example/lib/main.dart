@@ -172,16 +172,22 @@ class _NumberSpinnerShowcasePageState extends State<NumberSpinnerShowcasePage> {
           ),
           const SizedBox(height: 16),
           _buildSectionCard(
-            title: '2. 3D Cylindrical Wheel Pickers (Vertical & Horizontal)',
+            title: '2. 3D Spin Wheel Picker (SpinWheelNumberSpinner)',
             subtitle:
-                'Magnification lens, 3D cylinder perspective, edge gradient fade, and cyclic looping.',
+                'Colorful 3D circular lucky spin wheel with numbered pie slices, center pointer hub, weighted odds, and [-]/[SPIN]/[+] controls.',
             child: Wrap(
               spacing: 24,
               runSpacing: 20,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
+                const SpinWheelNumberSpinner(
+                  labelText: 'Lucky Spin Number (1..10)',
+                  min: 1,
+                  max: 10,
+                  wheelSize: 240,
+                ),
                 const NumberSpinner(
-                  labelText: 'Hour (Loop 00..23)',
+                  labelText: 'Drum Wheel (00..23)',
                   initialValue: 9,
                   min: 0,
                   max: 23,
@@ -189,20 +195,6 @@ class _NumberSpinnerShowcasePageState extends State<NumberSpinnerShowcasePage> {
                   layout: NumberSpinnerLayout.wheelVertical,
                   buttonPosition: NumberSpinnerButtonPosition.topBottom,
                   format: NumberSpinnerFormat.padded(width: 2),
-                ),
-                NumberSpinner(
-                  labelText: 'Minute (Neon Wheel)',
-                  initialValue: 30,
-                  min: 0,
-                  max: 59,
-                  loop: true,
-                  layout: NumberSpinnerLayout.wheelVertical,
-                  buttonPosition: NumberSpinnerButtonPosition.none,
-                  format: const NumberSpinnerFormat.padded(width: 2),
-                  style: NumberSpinnerStyle.neon(
-                    accentColor: const Color(0xFF38BDF8),
-                    showProgressIndicator: false,
-                  ),
                 ),
                 const NumberSpinner(
                   labelText: 'Horizontal 3D Carousel',

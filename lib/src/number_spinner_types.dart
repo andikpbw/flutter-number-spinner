@@ -15,6 +15,10 @@ enum NumberSpinnerLayout {
   /// Interactive sliding ruler / tick-mark gauge with major/minor ticks,
   /// center pointer needle, and live animated value readout.
   ruler,
+
+  /// Colorful 3D circular lucky spin wheel / roulette picker with numbered
+  /// pie slices, central teardrop pointer hub, and spin deceleration physics.
+  spinWheel,
 }
 
 /// Predefined sizing presets for `NumberSpinner`.

@@ -25,3 +25,4 @@ export 'src/number_spinner_style.dart';
 export 'src/number_spinner_types.dart';
 export 'src/number_spinner_widget.dart';
 export 'src/odometer_text.dart';
+export 'src/spin_wheel_number_spinner.dart';

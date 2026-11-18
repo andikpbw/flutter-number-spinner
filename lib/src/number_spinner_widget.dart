@@ -11,6 +11,7 @@ import 'number_spinner_math.dart';
 import 'number_spinner_style.dart';
 import 'number_spinner_types.dart';
 import 'odometer_text.dart';
+import 'spin_wheel_number_spinner.dart';
 
 const Color _kWhite = Color(0xFFFFFFFF);
 const Color _kBlack = Color(0xFF000000);
@@ -741,6 +742,23 @@ class _NumberSpinnerState extends State<NumberSpinner> {
         return _buildHorizontalWheelLayout(context, metrics, colors);
       case NumberSpinnerLayout.ruler:
         return _buildRulerLayout(context, metrics, colors);
+      case NumberSpinnerLayout.spinWheel:
+        return Center(
+          child: SpinWheelNumberSpinner(
+            min: _controller.min,
+            max: _controller.max,
+            step: _controller.step,
+            initialValue: _controller.value,
+            format: widget.format,
+            wheelSize: math.min(metrics.width ?? 220, metrics.height - 16),
+            showControlBar: false,
+            showResultBadge: false,
+            enabled: _isInteractive,
+            enableHapticFeedback: widget.enableHapticFeedback,
+            onChanged: (val) => _controller.setValue(val, snap: false),
+            onSpinEnd: (val) => widget.onSubmitted?.call(val),
+          ),
+        );
     }
   }
 
@@ -1609,6 +1627,9 @@ class _NumberSpinnerState extends State<NumberSpinner> {
       case NumberSpinnerLayout.ruler:
         defaultHeight = style.height ?? (itemExtent + 54);
         defaultWidth ??= 260;
+      case NumberSpinnerLayout.spinWheel:
+        defaultHeight = style.height ?? (itemExtent * 5);
+        defaultWidth ??= style.height ?? (itemExtent * 5);
     }
 
     final borderWidth =

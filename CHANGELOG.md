@@ -1,3 +1,8 @@
+## 1.0.3
+
+- Added `SpinWheelNumberSpinner`, `SpinWheelController`, and `NumberSpinnerLayout.spinWheel` for colorful 3D circular lucky spin wheel / roulette number picking with numbered pie slices, central teardrop pointer hub, weighted probabilities (`weights`), winner exclusion (`excludeNumber`), and `[-]` `[↻]` `[+]` action controls.
+- Updated `README.md` animated visual previews (`doc/showcase_banner.svg` and `doc/wheel_picker.svg`) with the 3D circular spin wheel animation.
+
 ## 1.0.2
 
 - Added animated visual previews and interactive component showcase diagrams (`Odometer Number Spinner`, `3D Wheel Picker`, `Multi-Digit 3D Drum Counter`, and `Interactive Sliding Ruler Gauge`) to `README.md`.

@@ -18,10 +18,10 @@ A modern, eye-catching animated number spinner, 3D cylindrical wheel picker, rol
 
 ## 🎬 Live Visual Preview
 
-| 1. Odometer Number Spinner (`odometer`) | 2. 3D Wheel Picker (`wheelVertical` & `wheelHorizontal`) |
+| 1. Odometer Number Spinner (`odometer`) | 2. 3D Spin Wheel Picker (`SpinWheelNumberSpinner`) |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/odometer_spinner.svg" alt="Odometer Number Spinner Preview" width="100%" /> | <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/wheel_picker.svg" alt="3D Wheel Picker Preview" width="100%" /> |
-| Per-character rolling digit transition, drag-to-spin, tap-to-edit, and bottom progress bar. | 3D cylindrical perspective drum & horizontal carousel with magnification lens and edge fades. |
+| <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/odometer_spinner.svg" alt="Odometer Number Spinner Preview" width="100%" /> | <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/wheel_picker.svg" alt="3D Spin Wheel Picker Preview" width="100%" /> |
+| Per-character rolling digit transition, drag-to-spin, tap-to-edit, and bottom progress bar. | Colorful 3D circular lucky spin wheel with numbered pie slices, center pointer hub, weighted odds, and `[-]` `[↻]` `[+]` controls. |
 
 | 3. Multi-Digit 3D Drum Counter (`MultiDigitNumberSpinner`) | 4. Interactive Sliding Ruler (`ruler`) |
 | :---: | :---: |
@@ -32,7 +32,8 @@ A modern, eye-catching animated number spinner, 3D cylindrical wheel picker, rol
 
 ## ✨ Features
 
-- 🎡 **4 Eye-Catching Interactive Layouts** (`NumberSpinnerLayout`):
+- 🎡 **5 Eye-Catching Interactive Layouts** (`NumberSpinnerLayout` & `SpinWheelNumberSpinner`):
+  - `SpinWheelNumberSpinner` / `NumberSpinnerLayout.spinWheel` — Colorful 3D circular lucky spin wheel / roulette number picker with numbered pie slices (`1..10+`), central teardrop pointer hub, realistic deceleration physics, weighted winning probabilities (`weights`), dynamic slice controls (`[-]` `[↻]` `[+]`), and `excludeNumber()` support.
   - `NumberSpinnerLayout.odometer` — Rolling-digit odometer capsule with drag-to-spin gestures, tap-to-edit inline input, and stepper buttons.
   - `NumberSpinnerLayout.wheelVertical` — 3D vertical cylindrical drum wheel picker with magnification lens and gradient edge fades.
   - `NumberSpinnerLayout.wheelHorizontal` — 3D horizontal carousel wheel picker with center lens highlight.
@@ -64,7 +65,7 @@ Add `number_spinner` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  number_spinner: ^1.0.2
+  number_spinner: ^1.0.3
 ```
 
 Or install via the Flutter CLI:
@@ -105,7 +106,32 @@ class QuantitySpinnerDemo extends StatelessWidget {
 
 ## 📖 Usage Examples
 
-### 1. Odometer Capsule, 3D Vertical Wheel, Horizontal Carousel & Sliding Ruler
+### 1. 3D Circular Spin Wheel (`SpinWheelNumberSpinner`)
+
+```dart
+final wheelController = SpinWheelController(
+  min: 1,
+  max: 10,
+  step: 1,
+  // Optional custom winning probability weights per number:
+  weights: {7: 3.0, 10: 2.0},
+);
+
+SpinWheelNumberSpinner(
+  labelText: 'Lucky Spin Number',
+  controller: wheelController,
+  wheelSize: 260,
+  showControlBar: true,   // Displays [-] [SPIN] [+] buttons
+  showResultBadge: true,  // Displays Winning Result card
+  onSpinEnd: (winner) {
+    debugPrint('Winning number: $winner');
+    // Optionally exclude winner from next spin:
+    // wheelController.excludeNumber(winner);
+  },
+);
+```
+
+### 2. Odometer Capsule, 3D Vertical Wheel, Horizontal Carousel & Sliding Ruler
 
 ```dart
 // 1. Odometer Capsule with Glassmorphic Theme
