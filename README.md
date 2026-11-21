@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/gold_medal_banner.png?v=1" alt="number_spinner gold medal badge" width="100%" />
+  <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/gold_medal_banner.png?v=1.0.5" alt="number_spinner gold medal badge" width="100%" />
 </p>
 
 # number_spinner
@@ -69,7 +69,7 @@ Add `number_spinner` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  number_spinner: ^1.0.4
+  number_spinner: ^1.0.5
 ```
 
 Or install via the Flutter CLI:

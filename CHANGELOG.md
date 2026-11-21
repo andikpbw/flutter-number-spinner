@@ -1,3 +1,7 @@
+## 1.0.5
+
+- Added a 3D gold medal hero banner (`doc/gold_medal_banner.png`) to the top of `README.md`.
+
 ## 1.0.4
 
 - Polished header typography spacing in `doc/showcase_banner.svg` and added cache-busting query parameters (`?v=1.0.4`) on `README.md` SVG preview URLs for immediate CDN refresh on `pub.dev`.
