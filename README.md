@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/andikpbw/flutter-number-spinner/main/doc/gold_medal_banner.svg?v=1.0.4" alt="number_spinner gold medal badge" width="100%" />
+</p>
+
 # number_spinner
 
 [![pub package](https://img.shields.io/pub/v/number_spinner.svg)](https://pub.dev/packages/number_spinner)

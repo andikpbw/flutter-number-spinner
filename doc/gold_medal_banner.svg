@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="296" viewBox="0 0 1024 296" font-family="Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1c20"/><stop offset="1" stop-color="#0b0b0e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff0a8"/><stop offset="0.5" stop-color="#f2b92e"/><stop offset="1" stop-color="#b9780f"/>
+    </linearGradient>
+    <radialGradient id="medal" cx="0.35" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#fff3b0"/><stop offset="0.6" stop-color="#e7a928"/><stop offset="1" stop-color="#a86a0c"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f2b92e" stop-opacity="0.45"/><stop offset="1" stop-color="#f2b92e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="296" fill="#000"/>
+  <rect x="14" y="10" width="996" height="272" rx="28" fill="url(#bg)" stroke="#d9a62e" stroke-opacity="0.8" stroke-width="2"/>
+
+  <!-- Medal -->
+  <circle cx="170" cy="140" r="130" fill="url(#glow)"/>
+  <path d="M130 190 L108 262 L146 248 L166 268 L178 196 Z" fill="#b3182a"/>
+  <path d="M210 190 L232 262 L194 248 L174 268 L162 196 Z" fill="#8f1020"/>
+  <g fill="none" stroke="url(#gold)" stroke-width="6" stroke-linecap="round">
+    <path d="M98 100 Q82 150 120 200"/><path d="M242 100 Q258 150 220 200"/>
+  </g>
+  <circle cx="170" cy="140" r="72" fill="url(#medal)" stroke="#fff0a8" stroke-width="3"/>
+  <circle cx="170" cy="140" r="58" fill="none" stroke="#8a560a" stroke-opacity="0.6" stroke-width="2"/>
+  <path d="M138 82 L148 62 L160 76 L170 56 L180 76 L192 62 L202 82 Z" fill="url(#gold)" stroke="#8a560a" stroke-width="1.5"/>
+  <text x="170" y="158" text-anchor="middle" font-size="52" font-weight="800" fill="#7a4a06">#1</text>
+
+  <!-- Text -->
+  <g fill="#f5c542" font-size="26">
+    <text x="324" y="78">★ ★ ★ ★ ★</text>
+  </g>
+  <rect x="445" y="52" width="278" height="32" rx="16" fill="none" stroke="#d9a62e" stroke-opacity="0.8"/>
+  <text x="584" y="73" text-anchor="middle" font-size="12" font-weight="700" fill="#f1e2b0" letter-spacing="1">ZERO DEPENDENCIES • 5 LAYOUTS</text>
+
+  <text x="324" y="150" font-size="52" font-weight="800" fill="url(#gold)">Gold Standard Spinner</text>
+  <text x="324" y="192" font-size="24" font-weight="700" fill="#ffffff">Animated Number Spinner &amp; Picker Studio</text>
+  <text x="324" y="226" font-size="13.5" fill="#8ea0b8">3D Wheel Picker  •  Rolling Odometer  •  Sliding Ruler  •  Mobile, Desktop &amp; Web</text>
+</svg>
